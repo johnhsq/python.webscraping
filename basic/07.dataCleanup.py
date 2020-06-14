@@ -1,8 +1,15 @@
 # https://www.jeddd.com/article/python-ngram-language-prediction.html
-### 删除空白字符
+# replace escape characters (such as \n) with a space
+import re
+content = re.sub('\n', ' ', content)
+# remove any Unicode characters
+content = bytes(content, 'UTF-8')
+content = content.decode('ascii', 'ignore')
+# 删除空白字符
 content = content.replace(u'\t', '')      # 去除制表符
 content = content.replace(u'\xa0', '')    # 去除全角空格
 content = content.replace(u'\u3000', '')  # 去除不间断空白符
+
 
 ### 切割成句子
 content = re.split('，|。|；|？|！|：|\n', content)

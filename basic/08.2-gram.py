@@ -2,6 +2,8 @@ from urllib.request import urlopen
 from bs4 import BeautifulSoup
 import re
 
+# takes in an input string, splits it into a sequence of words (assuming all words are separated by spaces), 
+# and adds the n-gram (in this case, a 2-gram) that each word starts into an array.
 def getNgrams(content, n):
     # replace escape characters (such as \n) with a space; removes citations like [123]
     content = re.sub('\n|[[\d+\]]', ' ', content)

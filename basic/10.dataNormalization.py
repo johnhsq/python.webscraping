@@ -1,6 +1,6 @@
-# https://zhuanlan.zhihu.com/p/34219483
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
+from collections import Counter
 import re
 import string
 
@@ -17,6 +17,7 @@ def cleanSentence(sentence):
 # also splits the text into “sentences” based on the location of periods followed by a space
 def cleanInput(content):
     content = re.sub('\n|[[\d+\]]', ' ', content)
+    content = content.upper()
     content = bytes(content, 'UTF-8')
     content = content.decode('ascii', 'ignore')
     sentences = content.split('. ')
@@ -31,9 +32,14 @@ def getNgramsFromSentence(content, n):
 
 def getNgrams(content, n):
     content = cleanInput(content)
-    ngrams = []
+    #ngrams = []
+    ngrams = Counter()
     for sentence in content:
-        ngrams.extend(getNgramsFromSentence(sentence, n))
+        # ngrams.extend(getNgramsFromSentence(sentence, n))
+        # Counter object can't store a list. Therefore, it requires conversion to strings first by using a ' '.join(ngram)
+        newNgrams = [' '.join(ngram) 
+            for ngram in getNgramsFromSentence(sentence, n)]
+        ngrams.update(newNgrams)
     return(ngrams)
 
 html = urlopen('http://en.wikipedia.org/wiki/Python_(programming_language)')

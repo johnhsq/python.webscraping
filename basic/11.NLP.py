@@ -3,6 +3,7 @@ from random import randint
 
 ### using the inauguration speech of William Henry Harrison
 ### generates arbitrarily long Markov chains (with the chain length set to 100)
+### These Markov chains tend to improve in their “realism” as more text is collected, especially from sources with similar writing styles.
 
 
 def wordListSum(wordList):
@@ -11,7 +12,8 @@ def wordListSum(wordList):
         sum += value
     return sum
 
-# etrieves a random word from the dictionary, weighted by the number of times it occurs.
+# retrieves a random word from the dictionary, weighted by the number of times it occurs.
+# traverse through the Markov chain easily, generating as many words as you like.
 def retrieveRandomWord(wordList):
     randIndex = randint(1, wordListSum(wordList))
     for word, value in wordList.items():

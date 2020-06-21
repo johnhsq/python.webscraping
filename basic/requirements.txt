@@ -3,3 +3,4 @@ lxml
 html5lib
 scrapy
 pdfminer
+nltk

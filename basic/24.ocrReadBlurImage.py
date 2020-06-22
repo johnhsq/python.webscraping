@@ -14,6 +14,7 @@ def cleanFile(filePath, newFilePath):
 
     # Using the Pillow library to create a threshold filter to get rid of the gray in the background, 
     # bring out the text, and make the image clearer for Tesseract to read.
+    # 143 was chosen experimentally as the "ideal" threshold to adjust all image pixels to black or white
     image = image.point(lambda x:0 if x < 143 else 255)
     image.save(newFilePath)
     return image

@@ -5,3 +5,5 @@ scrapy
 pdfminer
 nltk
 selenium
+pillow
+pytesseract

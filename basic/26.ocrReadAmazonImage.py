@@ -17,7 +17,7 @@ def getImageText(imageUrl):
     print(f.read())
 
 # create new Selenium driver
-driver = webdriver.Chrome(executable_path='/Users/huang/Documents/Workspace/python.webscraping/basic/drivers/chromedriver')
+driver = webdriver.Chrome(executable_path='./drivers/chromedriver')
 driver.get('https://www.amazon.com/Death-Ivan-Ilyich-Nikolayevich-Tolstoy/dp/1427027277')
 time.sleep(2)
 

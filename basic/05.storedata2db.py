@@ -12,6 +12,7 @@ print("opened sqlite3 database successfully")
 random.seed(datetime.datetime.now())
 
 ### DB operation
+# $ sqlite3
 # sqlite> attach database '/Users/huang/Documents/Workspace/python.webscraping/basic/scraping.db' as scraping;
 # sqlite> .database
 # sqlite> .exit
